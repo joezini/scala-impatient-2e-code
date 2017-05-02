@@ -37,4 +37,25 @@ class exercisesCh02Spec() extends FlatSpec with Matchers {
     ex2.messages shouldBe (0 to 42).map(x => x.toString).toList.reverse
   }
 
+  "unicodeProduct" should "multiply the letters of Hello to make 9415087488" in {
+    ex.unicodeProduct("Hello") shouldBe 9415087488L
+  }
+
+  "unicodeProductNoForLoop" should "multiply the letters of Hello to make 9415087488" in {
+    ex.unicodeProductNoForLoop("Hello") shouldBe 9415087488L
+  }
+
+  "unicodeProductRecursive" should "multiply the letters of Hello to make 9415087488" in {
+    ex.unicodeProductRecursive("Hello") shouldBe 9415087488L
+  }
+
+  "power" should "calculate 5^3 = 125" in {
+    ex.power(5, 3) shouldBe 125
+  }
+
+  "power" should "calculate 16^0 = 1" in {
+    ex.power(16, 0) shouldBe 1
+  }
+
+
 }
