@@ -21,4 +21,9 @@ class exercisesCh03Spec extends FlatSpec with Matchers {
 
   }
 
+  "adjacentSwap" should "swap adjacent integers in an array" in {
+    ex.adjacentSwap(Array(1,2,3,4,5)) shouldBe Array(2,1,4,3,5)
+  }
+
+
 }
