@@ -46,4 +46,8 @@ class exercisesCh03Spec extends FlatSpec with Matchers {
     ex.deDupe(Array(1,1,2,3,1,2,5,3,6,2)) shouldBe Array(1,2,3,5,6)
   }
 
+  "removeAllButFirstNegative" should "remove all negatives except the first" in {
+    ex.removeAllButFirstNegative(ArrayBuffer(5,-74,3,7,-9,21,7,93,7,-8985,621,-6)) shouldBe ArrayBuffer(5,-74,3,7,21,7,93,7,621)
+  }
+
 }

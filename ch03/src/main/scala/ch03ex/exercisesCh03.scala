@@ -1,7 +1,10 @@
 package ch03ex
 
 import Math._
-import scala.collection.mutable.ArrayBuffer
+import scala.collection.mutable.{ Buffer, ArrayBuffer }
+import scala.collection.JavaConversions.asScalaBuffer
+import java.util.TimeZone
+import java.awt.datatransfer._
 
 /**
   * Created by edwardsj on 02/05/2017.
@@ -47,4 +50,23 @@ class exercisesCh03 {
     arr.distinct
   }
 
+  def removeAllButFirstNegative(arr: ArrayBuffer[Int]): ArrayBuffer[Int] = {
+    val negativeElements = for (i <- 0 until arr.size if arr(i)  < 0) yield i
+    val elementsToRemove = negativeElements.reverse.dropRight(1)
+    for (r <- elementsToRemove) arr.remove(r)
+    arr
+  }
+
+}
+
+object TestApp extends App {
+
+  println("Ex 3.9")
+  val americaList = for (z <- TimeZone.getAvailableIDs if z.startsWith("America")) yield println(z.stripPrefix("America/"))
+  americaList.sorted
+
+  println("Ex 3.10")
+  val flavors = SystemFlavorMap.getDefaultFlavorMap.asInstanceOf[SystemFlavorMap]
+  val natives: Buffer[String] = flavors.getNativesForFlavor(DataFlavor.imageFlavor)
+  println(natives)
 }
