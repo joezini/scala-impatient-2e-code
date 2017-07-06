@@ -14,4 +14,12 @@ class exercisesCh04Spec extends FlatSpec with Matchers {
     ex.discount10(items) shouldBe Map("iMac" -> 1080.00, "Rug" -> 225.00, "Saga" -> 13.50)
   }
 
+  "minmax" should "return a pair of the smallest and largest ints in an array" in {
+    ex.minmax(Array(34,2,67,4,87,1,39)) shouldBe (1,87)
+  }
+
+  "lteqgt" should "return a count of values lt, eq to and gt than supplied int" in {
+    ex.lteqgt(Array(1,2,3,4,4,5,6,7,8), 4) shouldBe (3,2,4)
+  }
+
 }
